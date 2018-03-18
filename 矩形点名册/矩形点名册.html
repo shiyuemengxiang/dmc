@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点名册</title>
+		<style>
+			*{
+				padding:0;
+				margin:0;
+			}
+			/*表格显示样式*/
+			.box{
+				width:800px;
+				height:560px;
+				/*background: #ff660a;*/
+				margin:50px auto;
+				position: relative;
+				border: 1px solid greenyellow;
+			}
+			.box>.usr{
+				box-sizing:border-box;
+				width:100px;
+				height:80px;
+				border: 1px solid greenyellow;
+				float:left;
+				text-align: center;
+				line-height: 80px;
+				color:#333;
+			}
+	/*按钮以及结果样式区域*/		
+	.box2 .btn button{
+		margin-left:50px;
+		width:100px;
+		background:#66aeff;
+		height:60px;
+		margin-bottom: 30px;
+		margin-right: 30px;
+		cursor:url(ico.cur),auto;
+	}
+			h3{
+				color:#888;
+				display: inline-block;
+				font-size:28px;
+				text-align:center;
+				margin-right:50px;
+			}
+			.box2{
+				display: table;
+				margin:0 auto;
+			}
+			.box2 input{
+				background:#ae81ff;
+				width:150px;
+				height:80px;
+				line-height: 80px;
+				color:#000;
+				outline:none;
+				font-size: 20px;
+				text-align: center;
+				cursor:not-allowed;
+			}
+			/*选中块样式*/
+			.cho{
+				position:absolute;
+				top:320px;
+				left:400px;
+				width:100px;
+				height:80px;
+				background: rgba(0,0,0,0.3);
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				//抓取元素
+				var ks=document.getElementById("ks");
+				var js=document.getElementById("js");
+				var name=document.getElementById("name");
+				var cho=document.getElementsByClassName("cho")[0];
+				var usr=document.getElementsByClassName('usr');
+				var run;//存放定时器变量
+				//选中坐标的函数
+			function choose(){
+					//获取x坐标0-7随机数
+					var x=Math.floor(Math.random()*8);
+					//获取y作标0-6随机数
+					var y=Math.floor(Math.random()*7);
+					console.log(x+','+y);
+					cho.style.top=y*80+'px';
+					cho.style.left=x*100+'px';
+					var i=x+y*8;//i用于推算坐标的位置序号
+					console.log(i);
+					name.value=usr[i].innerHTML;
+				}
+//				choose();
+				//设置定时器
+				run=setInterval(choose(),500)
+				ks.onclick=function(){
+					clearInterval(run);//清空之前的定时器
+					//设置定时器
+					run=setInterval(choose,100)
+				}
+				js.onclick=function(){
+					clearInterval(run);
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1 align="center">矩形点名册</h1>
+		<div class="box">
+			<!--选中块-->
+			<div class="cho">
+			</div>
+			<div class="usr">姓名01</div>
+			<div class="usr">姓名02</div>
+			<div class="usr">姓名03</div>
+			<div class="usr">姓名04</div>
+			<div class="usr">姓名05</div>
+			<div class="usr">姓名06</div>
+			<div class="usr">姓名07</div>
+			<div class="usr">姓名08</div>
+			<div class="usr">姓名09</div>
+			<div class="usr">姓名10</div>
+			<div class="usr">姓名11</div>
+			<div class="usr">姓名12</div>
+			<div class="usr">姓名13</div>
+			<div class="usr">姓名14</div>
+			<div class="usr">姓名15</div>
+			<div class="usr">姓名16</div>
+			<div class="usr">姓名17</div>
+			<div class="usr">姓名18</div>
+			<div class="usr">姓名19</div>
+			<div class="usr">姓名20</div>
+			<div class="usr">姓名21</div>
+			<div class="usr">姓名22</div>
+			<div class="usr">姓名23</div>
+			<div class="usr">姓名24</div>
+			<div class="usr">姓名25</div>
+			<div class="usr">姓名26</div>
+			<div class="usr">姓名27</div>
+			<div class="usr">姓名28</div>
+			<div class="usr">姓名29</div>
+			<div class="usr">姓名30</div>
+			<div class="usr">姓名31</div>
+			<div class="usr">姓名32</div>
+			<div class="usr">姓名33</div>
+			<div class="usr">姓名34</div>
+			<div class="usr">姓名35</div>
+			<div class="usr">姓名36</div>
+			<div class="usr">姓名37</div>
+			<div class="usr">姓名38</div>
+			<div class="usr">姓名39</div>
+			<div class="usr">姓名40</div>
+			<div class="usr">姓名41</div>
+			<div class="usr">姓名42</div>
+			<div class="usr">姓名43</div>
+			<div class="usr">姓名44</div>
+			<div class="usr">姓名45</div>
+			<div class="usr">姓名46</div>
+			<div class="usr">姓名47</div>
+			<div class="usr">姓名48</div>
+			<div class="usr">姓名49</div>
+			<div class="usr">姓名50</div>
+			<div class="usr">姓名51</div>
+			<div class="usr">姓名52</div>
+			<div class="usr">姓名53</div>
+			<div class="usr">姓名54</div>
+			<div class="usr">姓名55</div>
+			<div class="usr">姓名56</div>
+		</div>
+		<div class="box2">
+			<div class="btn">
+				<button type="button" id="ks">开始</button><button type="button" id="js">结束</button>
+			</div>
+			<h3>幸运名单:</h3><input type="text" id="name" value="等待选中" disabled="disabled"/>
+		</div>
+		
+	</body>
+</html>
